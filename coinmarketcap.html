@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinMarketCap Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-blue': '#0d1421',
+                        'medium-blue': '#1e2a3b',
+                        'light-blue': '#2c3b4e',
+                        'accent-blue': '#3861fb',
+                        'accent-green': '#16c784',
+                        'accent-red': '#ea3943',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-blue text-gray-200 font-sans">
+    <!-- Header/Navigation Bar -->
+    <header class="bg-medium-blue border-b border-light-blue">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <div class="text-xl font-bold text-white">CoinMarketCap</div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-white">Cryptocurrencies</a>
+                    <a href="#" class="hover:text-white">Exchanges</a>
+                    <a href="#" class="hover:text-white">Community</a>
+                    <a href="#" class="hover:text-white">Products</a>
+                </nav>
+            </div>
+            <div>
+                <button class="bg-accent-blue text-white px-4 py-2 rounded-lg">Log In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Market Stats Bar -->
+    <div class="bg-medium-blue py-2 px-4 text-sm border-b border-light-blue">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <div class="flex space-x-4">
+                <span>Cryptos: 14.7M</span>
+                <span>Market Cap: <span class="text-accent-green">$3.02T</span> <span class="text-accent-green">↑3.21%</span></span>
+                <span>24h Vol: $81.37B</span>
+            </div>
+            <div class="flex space-x-4">
+                <span>BTC: 63.7%</span>
+                <span>ETH: 7.4%</span>
+                <span>Fear & Greed: 51/100</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+        <h1 class="text-2xl font-bold mb-2">Today's Cryptocurrency Prices by Market Cap</h1>
+        <p class="text-gray-400 mb-6">The global crypto market cap is $3.02T, a <span class="text-accent-green">↑3.21%</span> increase over the last day.</p>
+
+        <!-- Tabs -->
+        <div class="flex border-b border-light-blue mb-4">
+            <button class="py-2 px-4 text-white border-b-2 border-accent-blue">All Crypto</button>
+            <button class="py-2 px-4 text-gray-400 hover:text-white">NFTs</button>
+            <button class="py-2 px-4 text-gray-400 hover:text-white">Categories</button>
+            <button class="py-2 px-4 text-gray-400 hover:text-white">Token unlocks</button>
+        </div>
+
+        <!-- Filter & Controls -->
+        <div class="flex flex-wrap justify-between mb-4">
+            <div class="flex space-x-2 mb-2">
+                <button class="bg-light-blue hover:bg-opacity-80 px-3 py-1 rounded-md flex items-center">
+                    <span class="mr-1">Coins</span>
+                </button>
+                <button class="bg-light-blue hover:bg-opacity-80 px-3 py-1 rounded-md flex items-center">
+                    <span class="mr-1">DexScan</span>
+                </button>
+                <button class="bg-light-blue hover:bg-opacity-80 px-3 py-1 rounded-md flex items-center">
+                    <span class="mr-1">Top</span>
+                </button>
+            </div>
+            <div class="flex space-x-2">
+                <button class="bg-light-blue hover:bg-opacity-80 px-3 py-1 rounded-md">Filters</button>
+                <button class="bg-light-blue hover:bg-opacity-80 px-3 py-1 rounded-md">Show 100</button>
+            </div>
+        </div>
+
+        <!-- Cryptocurrency Table -->
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr class="text-left text-sm text-gray-400 border-b border-light-blue">
+                        <th class="py-3 pl-4 pr-2">#</th>
+                        <th class="py-3 px-2">Name</th>
+                        <th class="py-3 px-2 text-right">Price</th>
+                        <th class="py-3 px-2 text-right">24h %</th>
+                        <th class="py-3 px-2 text-right">Volume(24h)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Bitcoin -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">1</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">₿</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Bitcoin</div>
+                                    <div class="text-xs text-gray-400">BTC</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$96,919.80</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+3.08%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$30,963,318,979</div>
+                            <div class="text-xs text-gray-400">319.17K BTC</div>
+                        </td>
+                    </tr>
+                    <!-- Ethereum -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">2</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-gray-500 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">Ξ</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Ethereum</div>
+                                    <div class="text-xs text-gray-400">ETH</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$1,854.06</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+5.04%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$15,347,510,017</div>
+                            <div class="text-xs text-gray-400">8.26M ETH</div>
+                        </td>
+                    </tr>
+                    <!-- Tether -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">3</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">₮</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Tether</div>
+                                    <div class="text-xs text-gray-400">USDT</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$1.00</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+0.05%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$62,261,907,517</div>
+                            <div class="text-xs text-gray-400">62.23B USDT</div>
+                        </td>
+                    </tr>
+                    <!-- XRP -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">4</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">X</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">XRP</div>
+                                    <div class="text-xs text-gray-400">XRP</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$2.23</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+3.63%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$2,638,165,900</div>
+                            <div class="text-xs text-gray-400">1.17B XRP</div>
+                        </td>
+                    </tr>
+                    <!-- BNB -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">5</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">B</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">BNB</div>
+                                    <div class="text-xs text-gray-400">BNB</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$603.20</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+0.97%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$1,405,379,009</div>
+                            <div class="text-xs text-gray-400">2.32M BNB</div>
+                        </td>
+                    </tr>
+                    <!-- Solana -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">6</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">S</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Solana</div>
+                                    <div class="text-xs text-gray-400">SOL</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$151.84</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+6.66%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$3,137,810,725</div>
+                            <div class="text-xs text-gray-400">20.61M SOL</div>
+                        </td>
+                    </tr>
+                    <!-- USDC -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">7</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">$</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">USDC</div>
+                                    <div class="text-xs text-gray-400">USDC</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$1.00</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+0.03%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$10,442,985,752</div>
+                            <div class="text-xs text-gray-400">10.43B USDC</div>
+                        </td>
+                    </tr>
+                    <!-- Dogecoin -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">8</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-yellow-300 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">D</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Dogecoin</div>
+                                    <div class="text-xs text-gray-400">DOGE</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$0.1809</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+6.21%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$945,351,743</div>
+                            <div class="text-xs text-gray-400">5.22B DOGE</div>
+                        </td>
+                    </tr>
+                    <!-- Cardano -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">9</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-400 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">A</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Cardano</div>
+                                    <div class="text-xs text-gray-400">ADA</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$0.7033</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+3.70%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$813,386,786</div>
+                            <div class="text-xs text-gray-400">872.10M ADA</div>
+                        </td>
+                    </tr>
+                    <!-- TRON -->
+                    <tr class="border-b border-light-blue hover:bg-light-blue">
+                        <td class="py-4 pl-4 pr-2">10</td>
+                        <td class="py-4 px-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">T</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">TRON</div>
+                                    <div class="text-xs text-gray-400">TRX</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-4 px-2 text-right font-medium">$0.2476</td>
+                        <td class="py-4 px-2 text-right text-accent-green">+1.32%</td>
+                        <td class="py-4 px-2 text-right">
+                            <div>$424,396,721</div>
+                            <div class="text-xs text-gray-400">1.71B TRX</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-medium-blue py-6 mt-8 border-t border-light-blue">
+        <div class="container mx-auto px-4 text-center text-sm text-gray-400">
+            <p>© 2025 CoinMarketCap Clone. This project was developed as part of an assessment task..</p>
+        </div>
+    </footer>
+</body>
+</html>
